@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-WEBHOOK_URL = "https://khalilkhanafridi.app.n8n.cloud/webhook/59209596-e40b-459c-9c56-ee770cce2a32"
+WEBHOOK_URL = st.secrets["WEBHOOK_URL"]
 
 CAPABILITIES = [
     ("❓", "Answer questions", "Get answers on a wide range of topics."),
@@ -58,16 +58,25 @@ st.markdown("""
     }
 
     /* Capability cards */
+    .cap-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    @media (max-width: 700px) {
+        .cap-grid { grid-template-columns: repeat(1, 1fr); }
+    }
     .cap-card {
-        background: var(--bg-soft);
+        background: #FFFFFF;
         border: 1px solid var(--border);
         border-radius: 12px;
-        padding: 0.9rem 1rem;
-        height: 100%;
+        padding: 1rem 1.1rem;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
     }
-    .cap-card .cap-icon {font-size: 1.3rem; margin-bottom: 0.3rem;}
-    .cap-card .cap-title {font-weight: 600; font-size: 0.92rem; color: #111827 !important; margin-bottom: 0.15rem;}
-    .cap-card .cap-desc {font-size: 0.82rem; color: #4B5563 !important; line-height: 1.3;}
+    .cap-card .cap-icon {font-size: 1.35rem; margin-bottom: 0.4rem; line-height: 1;}
+    .cap-card .cap-title {font-weight: 600; font-size: 0.95rem; color: #111827 !important; margin-bottom: 0.2rem;}
+    .cap-card .cap-desc {font-size: 0.83rem; color: #4B5563 !important; line-height: 1.4;}
 
     /* Section labels */
     .section-label {
@@ -159,16 +168,18 @@ def render_header():
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="section-label">What I can help with</div>', unsafe_allow_html=True)
-    cols = st.columns(3)
-    for i, (icon, title, desc) in enumerate(CAPABILITIES):
-        with cols[i % 3]:
-            st.markdown(f"""
-            <div class="cap-card">
-                <div class="cap-icon">{icon}</div>
-                <div class="cap-title">{title}</div>
-                <div class="cap-desc">{desc}</div>
-            </div>
-            """, unsafe_allow_html=True)
+
+    cards_html = "".join(
+        f"""
+        <div class="cap-card">
+            <div class="cap-icon">{icon}</div>
+            <div class="cap-title">{title}</div>
+            <div class="cap-desc">{desc}</div>
+        </div>
+        """
+        for icon, title, desc in CAPABILITIES
+    )
+    st.markdown(f'<div class="cap-grid">{cards_html}</div>', unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────────────────────────
