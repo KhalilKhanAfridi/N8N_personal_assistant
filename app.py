@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-WEBHOOK_URL = st.secrets["WEBHOOK_URL"]
+WEBHOOK_URL = "https://khalilkhanafridi.app.n8n.cloud/webhook-test/59209596-e40b-459c-9c56-ee770cce2a32"
 
 CAPABILITIES = [
     ("❓", "Answer questions", "Get answers on a wide range of topics."),
