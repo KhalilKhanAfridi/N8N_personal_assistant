@@ -40,7 +40,9 @@ st.markdown("""
         --text-muted: #6B7280;
     }
 
-    #MainMenu, header, footer {visibility: hidden;}
+    #MainMenu, footer {
+    visibility: hidden;
+    }
     .block-container {padding-top: 2rem; padding-bottom: 3rem; max-width: 900px;}
 
     /* Header */
@@ -73,13 +75,20 @@ st.markdown("""
     @media (max-width: 700px) {
         .cap-grid { grid-template-columns: repeat(1, 1fr); }
     }
-    .cap-card {
-        background: #FFFFFF;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1rem 1.1rem;
-        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
-    }
+  .cap-card {
+    background: #17191F;
+    border: 1px solid #2A2D35;
+    border-radius: 16px;
+    padding: 1.2rem;
+    min-height: 150px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+}
+
+.cap-card:hover {
+    border-color: #F4C95D;
+    transform: translateY(-3px);
+}
     .cap-card .cap-icon {font-size: 1.35rem; margin-bottom: 0.4rem; line-height: 1;}
     .cap-card .cap-title {font-weight: 600; font-size: 0.95rem; color: #111827 !important; margin-bottom: 0.2rem;}
     .cap-card .cap-desc {font-size: 0.83rem; color: #4B5563 !important; line-height: 1.4;}
