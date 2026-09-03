@@ -54,7 +54,7 @@ st.markdown("""
         font-size: 2.1rem;
         font-weight: 700;
         margin-bottom: 0.35rem;
-        color: #111827;
+        color: #F4C95D !important;
 }
     }
     .app-header p {
