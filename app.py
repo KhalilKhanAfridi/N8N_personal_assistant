@@ -167,20 +167,22 @@ def render_header():
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="section-label">What I can help with</div>', unsafe_allow_html=True)
-
-    cards_html = "".join(
-        f"""
-        <div class="cap-card">
-            <div class="cap-icon">{icon}</div>
-            <div class="cap-title">{title}</div>
-            <div class="cap-desc">{desc}</div>
-        </div>
-        """
-        for icon, title, desc in CAPABILITIES
+    st.markdown(
+        '<div class="section-label">What I can help with</div>',
+        unsafe_allow_html=True
     )
-    st.markdown(f'<div class="cap-grid">{cards_html}</div>', unsafe_allow_html=True)
 
+    cols = st.columns(3)
+
+    for i, (icon, title, desc) in enumerate(CAPABILITIES):
+        with cols[i % 3]:
+            st.markdown(f"""
+            <div class="cap-card">
+                <div class="cap-icon">{icon}</div>
+                <div class="cap-title">{title}</div>
+                <div class="cap-desc">{desc}</div>
+            </div>
+            """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────
 # CHAT
