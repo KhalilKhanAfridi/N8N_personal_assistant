@@ -66,8 +66,8 @@ st.markdown("""
         height: 100%;
     }
     .cap-card .cap-icon {font-size: 1.3rem; margin-bottom: 0.3rem;}
-    .cap-card .cap-title {font-weight: 600; font-size: 0.92rem; color: #111827; margin-bottom: 0.15rem;}
-    .cap-card .cap-desc {font-size: 0.82rem; color: var(--text-muted); line-height: 1.3;}
+    .cap-card .cap-title {font-weight: 600; font-size: 0.92rem; color: #111827 !important; margin-bottom: 0.15rem;}
+    .cap-card .cap-desc {font-size: 0.82rem; color: #4B5563 !important; line-height: 1.3;}
 
     /* Section labels */
     .section-label {
@@ -81,11 +81,16 @@ st.markdown("""
 
     /* Chat bubbles */
     div[data-testid="stChatMessage"] {
-        background: var(--bg-soft);
+        background: #FFFFFF;
         border: 1px solid var(--border);
         border-radius: 14px;
         padding: 0.5rem 0.9rem;
         margin-bottom: 0.6rem;
+    }
+    div[data-testid="stChatMessage"] p,
+    div[data-testid="stChatMessage"] span,
+    div[data-testid="stChatMessage"] li {
+        color: #111827 !important;
     }
 
     /* Empty state */
@@ -94,10 +99,11 @@ st.markdown("""
         padding: 2.5rem 1rem;
         border: 1px dashed var(--border);
         border-radius: 14px;
-        color: var(--text-muted);
+        color: #4B5563 !important;
         background: var(--bg-soft);
     }
-    .empty-state h4 {color: #111827; margin-bottom: 0.4rem;}
+    .empty-state h4 {color: #111827 !important; margin-bottom: 0.4rem;}
+    .empty-state p {color: #4B5563 !important;}
 
     /* Footer */
     .app-footer {
