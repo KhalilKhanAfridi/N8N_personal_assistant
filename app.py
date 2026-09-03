@@ -15,10 +15,15 @@ WEBHOOK_URL = "https://khalilkhanafridi.app.n8n.cloud/webhook/59209596-e40b-459c
 
 CAPABILITIES = [
     ("❓", "Answer questions", "Get answers on a wide range of topics."),
+    
     ("📅", "Calendar", "Arrange events and meetings for you."),
+    
     ("📧", "Email", "Read, summarize, and reply to your emails."),
+    
     ("✅", "Tasks", "Manage your tasks and to‑do lists."),
+    
     ("📝", "Notes", "Take quick notes on your behalf."),
+    
     ("💰", "Budgeting", "Track your expenses and spending."),
 ]
 
@@ -50,6 +55,7 @@ st.markdown("""
         font-weight: 700;
         margin-bottom: 0.35rem;
         color: #111827;
+}
     }
     .app-header p {
         color: var(--text-muted);
